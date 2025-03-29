@@ -166,10 +166,14 @@ def main():
     parquet_file, next_offset = extract_data(offset=0, limit=20)
     print(f"🗂️ Data saved to: {parquet_file}")
     print(f"👉 Next offset would be: {next_offset}")
+    print("🎉 Data extraction completed successfully!")
 
     # Optionally load it into DuckDB
     load_data(parquet_file)
+    print(f"🦆 Loaded into DuckDB !")
     transform_data()
+    print("🥇 Transformation step finished. Data saved to pokemon_stats!")
+
 
 if __name__ == "__main__":
     main()
