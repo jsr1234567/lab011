@@ -36,6 +36,7 @@ def fetch_detail(url):
     except Exception as e:
         print(f"Error fetching {url}: {e}")
     return None  # if request fails
+    print("fetch_detail function called")
 
 def extract_data(offset=0, limit=BATCH_SIZE, output_dir="data"):
     os.makedirs(output_dir, exist_ok=True)
@@ -63,6 +64,7 @@ def extract_data(offset=0, limit=BATCH_SIZE, output_dir="data"):
 
     new_offset = offset + limit
     return file_path, new_offset
+    print("extract_data function called")
 
 
 
@@ -161,6 +163,7 @@ def transform_data(db_path="pokedex.duckdb"):
     
     # ✅ Step 5: Close the connection
     conn.close()
+    print("transform_data function called")
 
 def main():
     parquet_file, next_offset = extract_data(offset=0, limit=20)
